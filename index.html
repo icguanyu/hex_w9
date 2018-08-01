@@ -24,7 +24,7 @@
         </h2>
       </div>
       <div class="ship">
-        <img src="img/img-ship-beginner.png" alt="img-ship-beginner">
+        <img :src="ship[now_level]" alt="img-ship-beginner">
       </div>
       <svg viewbox="0 0 200 200">
         <polyline points="100,0 50,10 60,15 30,25 0,25 0,130 200,130 200,25 75,25 85,15 75,12 100,0"></polyline>
@@ -33,13 +33,17 @@
         <span>蒐集所有資源並學習新技術用來升級您的太空船</span> 這是最後一周了, 祝您好運!</div>
     </section>
     <section class="mid">
-      <div class="basics" v-for="(item,index) in skills">
+      <div class="bg">
+        <div class="rect"></div>
+        <div class="triangle"></div>
+      </div>
+      <div class="basics" v-for="(item,index) in skills" :class="{off:!item.available}">
         <div class="thumb">
           <img :src="item.img" alt="">
         </div>
         <div class="skills">
           <div class="skill" v-for="(skill,index) in item.skill">
-            <div class="icon" :class="{focus:skill.selected,on:skill.all_done}" @click="focus(skill)" >
+            <div class="icon" :class="{focus:skill.selected,done:skill.all_done}" @click="focus(skill)" >
               <i class="material-icons">{{skill.icon}}</i>
             </div>
             <div class="val">
@@ -78,7 +82,7 @@
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
   <script src="js/vendor.js"></script>
-  <script src="js/data.js"></script>
+  <script src="js/all.js"></script>
 </body>
 
 </html>

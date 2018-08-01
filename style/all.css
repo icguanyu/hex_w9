@@ -118,6 +118,10 @@ html {
   stroke-width: 1px;
 }
 
+.mid {
+  position: relative;
+}
+
 .mid > div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -151,19 +155,36 @@ html {
   border: 2px solid rgba(255, 255, 255, 0.1);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
 .mid > div .skills .skill .icon i {
+  -webkit-transition: .3s;
+  transition: .3s;
   font-size: 48px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.mid > div .skills .skill .icon:hover {
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.mid > div .skills .skill .icon:hover i {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .mid > div .skills .skill .focus {
   border: 2px solid #ff0093;
 }
 
-.mid > div .skills .skill .on {
+.mid > div .skills .skill .done {
   background: #6900D1;
   border: 2px solid #ff0093;
+}
+
+.mid > div .skills .skill .done i {
+  color: white;
 }
 
 .mid > div .skills .skill .val {
@@ -187,6 +208,41 @@ html {
 .mid > div .skills .skill .val p i {
   font-size: 18px;
   margin: 0 3px;
+}
+
+.mid .off {
+  pointer-events: none;
+}
+
+.mid .bg {
+  position: absolute;
+  width: 40px;
+  left: 45px;
+  top: 90px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: -1;
+}
+
+.mid .bg .rect {
+  width: 40px;
+  height: 0px;
+  background: rgba(125, 89, 160, 0.7);
+}
+
+.mid .bg .triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 25px 40px 0px 40px;
+  border-color: rgba(125, 89, 160, 0.7) transparent transparent transparent;
+  -webkit-transform: translateX(-20px);
+          transform: translateX(-20px);
 }
 
 .right {
@@ -213,13 +269,26 @@ html {
   padding: 20px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-flex: 3;
       -ms-flex: 3;
           flex: 3;
 }
 
 .right .contain .top i {
-  font-size: 144px;
+  font-size: 108px;
 }
 
 .right .contain .top p {

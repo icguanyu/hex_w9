@@ -110,6 +110,7 @@ html {
   }
 }
 .mid{
+  position: relative;
   >div{
     display: flex;
     margin: 10px 0;
@@ -132,16 +133,28 @@ html {
           background: rgba(255, 255, 255, .1);
           border: 2px solid rgba(255, 255, 255, .1);
           box-sizing: border-box;
+          transition: .3s;
           i{
+            transition: .3s;
             font-size: 48px;
+            color: rgba(255,255,255,0.3);
+          }
+          &:hover{
+            border: 2px solid rgba(255, 255, 255, .8);
+            i{
+              color: rgba(255,255,255,0.8)
+            }
           }
         }
         .focus{
           border: 2px solid $pink;
         }
-        .on{
+        .done{
           background: $purple2;
           border: 2px solid $pink;
+          i{
+            color: rgba(255,255,255,1)
+          }
         }
         .val{
           margin-bottom: 10px;
@@ -160,6 +173,31 @@ html {
       }
     }
   }
+  .off{
+    pointer-events: none;
+  }
+  .bg{
+    position: absolute;
+    width: 40px;
+    left: 45px;
+    top: 90px;
+    display: flex;
+    flex-direction: column;
+    z-index: -1;
+    .rect{
+      width: 40px;
+      height: 0px;
+      background: rgba(125, 89, 160, 0.7);
+    }
+    .triangle{    
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 25px 40px 0px 40px;
+      border-color: rgba(125, 89, 160, 0.7) transparent transparent transparent;
+      transform: translateX(-20px)
+    }
+  }
 }
 
 .right{
@@ -175,9 +213,13 @@ html {
     .top{
       padding: 20px;
       box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       flex: 3;
       i{
-        font-size: 144px;
+        font-size: 108px;
       }
       p{
         font-weight: 900;
