@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700i');
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+$pink: #ff0093;
+$purple: #8000ff;
+$purple2: #6900D1;
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+ul,
+li {
+  padding: 0;
+  margin: 0;
+}
+body,
+html {
+  background-image: linear-gradient(
+    to right,
+    #2d1b59 0%,
+    #0e0024 50%,
+    #2d1b59 100%
+  );
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  font-family: 'Open Sans', sans-serif,"Noto Sans TC";
+}
+
+.all {
+  width: 1024px;
+  height: 768px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  section {
+    flex: 1;
+    height: 100%;
+    padding: 30px 10px;
+    //border: 1px solid #ddd;
+    box-sizing: border-box;
+  }
+  .left {
+    position: relative;
+    h1 {
+      font-size: 48px;
+      letter-spacing: 5px;
+      margin: 10px 0;
+      line-height: 56px;
+      font-style: italic;
+      color: $pink;
+    }
+    span {
+      background: $purple;
+      padding: 5px 10px;
+      font-size: 16px;
+      margin: 5px 0;
+    }
+    h2 {
+      text-decoration: underline;
+      color: $purple;
+      margin: 20px 0;
+      span{
+        padding: 0;
+        background: none;
+        font-size: 36px;
+        line-height: 42px;
+        letter-spacing: 3px;
+        color: #fff;
+      }
+    }
+    .ship{
+      img{
+        margin: 15px 0;
+        animation: 2s wave infinite linear;
+      }
+    }
+    .welcome{
+      padding: 50px 30px;
+      color: #fff;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 200;
+      span{
+        color: $pink;
+        background: none;
+        padding: 0;
+      }
+    }
+    svg{
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      bottom: -30px;
+      stroke: $pink;
+      fill: none;
+      stroke-width: 1px;
+    }
+  }
+}
+.mid{
+  >div{
+    display: flex;
+    margin: 10px 0;
+    .thumb{
+      padding: 0 10px;
+      img{
+        width: 90px;
+        height: 90px;
+      }
+    }
+    .skills{
+      color: #fff;
+      .skill{
+        display: inline-block;
+        margin: 0px 1px;
+        .icon{
+          cursor: pointer;
+          padding: 3px;
+          margin-bottom: 5px;
+          background: rgba(255, 255, 255, .1);
+          border: 2px solid rgba(255, 255, 255, .1);
+          box-sizing: border-box;
+          i{
+            font-size: 48px;
+          }
+        }
+        .focus{
+          border: 2px solid $pink;
+        }
+        .on{
+          background: $purple2;
+          border: 2px solid $pink;
+        }
+        .val{
+          margin-bottom: 10px;
+          p{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            letter-spacing: 2px;
+            font-size: 14px;
+            i{
+              font-size: 18px;
+              margin: 0 3px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.right{
+  transition: all .3s;
+  .contain{
+    border: 2px solid $pink;
+    background: #8000ff;
+    color: #fff;
+    text-align: center;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    .top{
+      padding: 20px;
+      box-sizing: border-box;
+      flex: 3;
+      i{
+        font-size: 144px;
+      }
+      p{
+        font-weight: 900;
+        font-size: 36px;
+      }
+    }
+    .bottom{
+      background: $purple2;
+      padding: 20px 40px;
+      box-sizing: border-box;
+      flex: 6;
+      i{
+        margin-top: 20px;
+        font-size: 42px;
+      }
+      span{
+        cursor: pointer;
+        border: 2px solid #fff;
+        display: block;
+        padding: 5px 20px;
+        margin: 15px 0px;
+      }
+      .selected{
+        background: $pink;
+        border: 2px solid $pink;
+      }
+    }
+  }
+}
+
+
+@keyframes wave{
+  0%{
+    transform: translateY(0%)
+  }
+  50%{
+    transform: translateY(5%)
+  }
+  100%{
+    transform: translateY(0%)
+  }
+}

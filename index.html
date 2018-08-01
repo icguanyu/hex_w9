@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="style/all.css">
+  <title>W9 Skill Tree</title>
+</head>
+
+<body>
+  <div class="all" id="app">
+    <section class="left">
+      <div class="title">
+        <h1>前端工程師
+          <br>技能樹</h1>
+      </div>
+      <div class="current">
+        <span>目前階段</span>
+        <h2>
+          <span>{{rank[now_level]}}<span>
+        </h2>
+      </div>
+      <div class="ship">
+        <img src="img/img-ship-beginner.png" alt="img-ship-beginner">
+      </div>
+      <svg viewbox="0 0 200 200">
+        <polyline points="100,0 50,10 60,15 30,25 0,25 0,130 200,130 200,25 75,25 85,15 75,12 100,0"></polyline>
+      </svg>
+      <div class="welcome">歡迎來到精神時光屋，你的任務是:
+        <span>蒐集所有資源並學習新技術用來升級您的太空船</span> 這是最後一周了, 祝您好運!</div>
+    </section>
+    <section class="mid">
+      <div class="basics" v-for="(item,index) in skills">
+        <div class="thumb">
+          <img :src="item.img" alt="">
+        </div>
+        <div class="skills">
+          <div class="skill" v-for="(skill,index) in item.skill">
+            <div class="icon" :class="{focus:skill.selected,on:skill.all_done}" @click="focus(skill)" >
+              <i class="material-icons">{{skill.icon}}</i>
+            </div>
+            <div class="val">
+              <p>
+                <i class="material-icons">settings</i>
+                <span>{{learn(skill).recommened_length}}</span>/{{skill.recommened.length}}</p>
+              <p>
+                <i class="material-icons">filter_tilt_shift</i>
+                <span>{{learn(skill).optional_length}}</span>/{{skill.optional.length}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="right">
+      <div class="contain">
+        <div class="top">
+          <i class="material-icons">{{filters.icon}}</i>
+          <p>{{filters.name}}</p>
+        </div>
+        <div class="bottom">
+          <div class="recommened" v-if="filters.recommened.length">
+            <i class="material-icons">settings</i>
+            <p>必備技能</p>
+            <span v-for="(item,index) in filters.recommened" @click="select(item)" :class="{'selected':item.selected}">{{item.rc_skill}}</span>
+          </div>
+          <div class="optional" v-if="filters.optional.length">
+            <i class="material-icons">filter_tilt_shift</i>
+            <p>選修技能</p>
+            <span v-for="(item,index) in filters.optional" @click="select(item)" :class="{'selected':item.selected}">{{item.op_skill}}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script src="js/vendor.js"></script>
+  <script src="js/data.js"></script>
+</body>
+
+</html>
